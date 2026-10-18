@@ -40,4 +40,4 @@ Third-party libraries are governed by their own licenses; see `THIRD_PARTY_NOTIC
 
 ## Required runtime files
 
-A starter `MapEdit_as2.cfg` and `Maps/new.map` are included under `runtime`. To use the starter setup, copy `runtime/MapEdit.cfg` and the `runtime/Maps` directory to the editor's working directory.
+A starter `MapEdit.cfg` and `Maps/new.map` are included under `runtime`. To use the starter setup, copy `runtime/MapEdit.cfg` and the `runtime/Maps` directory to the editor's working directory.
