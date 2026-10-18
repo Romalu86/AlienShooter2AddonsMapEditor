@@ -1,0 +1,22 @@
+Alien Shooter 2 Map Editor - Third-party components
+
+libogg
+  Location: third_party/libogg
+  Copyright (c) 2002, Xiph.Org Foundation
+  License text: third_party/libogg/COPYING
+  Original contributor list: third_party/libogg/AUTHORS
+
+libvorbis
+  Location: third_party/libvorbis
+  Copyright (c) 2002, Xiph.org Foundation
+  License text: third_party/libvorbis/COPYING
+  Original contributor list: third_party/libvorbis/AUTHORS
+
+DirectX 9.0 SDK December 2002
+  Location: third_party/directx9
+  Provider: Microsoft Corporation
+  Contents: required Direct3D, D3DX and DirectPlay headers and d3dx9.lib
+  License text: third_party/directx9/LICENSE.txt
+
+The original license and attribution files are preserved with each component.
+This notice does not replace or modify those terms.

@@ -1,0 +1,584 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="Current">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F36B1183-C40A-4855-901D-1D3E6F80D50C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>MapEdit</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup>
+    <AS2_GAME_DIR Condition="'$(AS2_GAME_DIR)'==''">$(ProjectDir)runtime</AS2_GAME_DIR>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
+    <TargetName>MapEdit</TargetName>
+    <GenerateManifest>false</GenerateManifest>
+    <LocalDebuggerWorkingDirectory>$(AS2_GAME_DIR)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)third_party\directx9\Include;$(ProjectDir)third_party\libogg\include;$(ProjectDir)third_party\libvorbis\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <FloatingPointModel>Strict</FloatingPointModel>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/Zc:threadSafeInit- /source-charset:.1251 /execution-charset:.1251 %(AdditionalOptions)</AdditionalOptions>
+      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <AdditionalDependencies>$(ProjectDir)third_party\directx9\Lib\d3dx9.lib;legacy_stdio_definitions.lib;$(ProjectDir)resources\MapEdit_as2.res;d3d9.lib;ddraw.lib;dsound.lib;dinput8.lib;dxguid.lib;winmm.lib;comctl32.lib;comdlg32.lib;gdi32.lib;user32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;strmiids.lib;advapi32.lib;ws2_32.lib;vfw32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)third_party\directx9\Include;$(ProjectDir)third_party\libogg\include;$(ProjectDir)third_party\libvorbis\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <Optimization>MaxSpeed</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <FloatingPointModel>Strict</FloatingPointModel>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/Zc:threadSafeInit- /source-charset:.1251 /execution-charset:.1251 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <AdditionalDependencies>$(ProjectDir)third_party\directx9\Lib\d3dx9.lib;legacy_stdio_definitions.lib;$(ProjectDir)resources\MapEdit_as2.res;d3d9.lib;ddraw.lib;dsound.lib;dinput8.lib;dxguid.lib;winmm.lib;comctl32.lib;comdlg32.lib;gdi32.lib;user32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;strmiids.lib;advapi32.lib;ws2_32.lib;vfw32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ANGLE.CPP">
+      <ObjectFileName>$(IntDir)src__ANGLE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\BALLOON.CPP">
+      <ObjectFileName>$(IntDir)src__BALLOON.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\BUILDED_TERRAIN.CPP">
+      <ObjectFileName>$(IntDir)src__BUILDED_TERRAIN.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\BUILDING.CPP">
+      <ObjectFileName>$(IntDir)src__BUILDING.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CANNON.CPP">
+      <ObjectFileName>$(IntDir)src__CANNON.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CONSTANT.CPP">
+      <ObjectFileName>$(IntDir)src__CONSTANT.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CRC32.CPP">
+      <ObjectFileName>$(IntDir)src__CRC32.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\CREATURE.CPP">
+      <ObjectFileName>$(IntDir)src__CREATURE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\DEPO.CPP">
+      <ObjectFileName>$(IntDir)src__DEPO.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\DIALOG_UNIT.CPP">
+      <ObjectFileName>$(IntDir)src__DIALOG_UNIT.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\ENGINE.CPP">
+      <ObjectFileName>$(IntDir)src__ENGINE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\FRAME.CPP">
+      <ObjectFileName>$(IntDir)src__FRAME.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\GROUPS.CPP">
+      <ObjectFileName>$(IntDir)src__GROUPS.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\INPUT.CPP">
+      <ObjectFileName>$(IntDir)src__INPUT.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\LINKER.CPP">
+      <ObjectFileName>$(IntDir)src__LINKER.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\MAN.CPP">
+      <ObjectFileName>$(IntDir)src__MAN.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\MAP.CPP">
+      <ObjectFileName>$(IntDir)src__MAP.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\MENU.CPP">
+      <ObjectFileName>$(IntDir)src__MENU.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\MESSAGE.CPP">
+      <ObjectFileName>$(IntDir)src__MESSAGE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\MOUSE.CPP">
+      <ObjectFileName>$(IntDir)src__MOUSE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\MYERROR.CPP">
+      <ObjectFileName>$(IntDir)src__MYERROR.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\MYLIB.CPP">
+      <ObjectFileName>$(IntDir)src__MYLIB.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\NET.CPP">
+      <ObjectFileName>$(IntDir)src__NET.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\PLANE.CPP">
+      <ObjectFileName>$(IntDir)src__PLANE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\PLAYER.CPP">
+      <ObjectFileName>$(IntDir)src__PLAYER.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\PLAYER_ARCADE.CPP">
+      <ObjectFileName>$(IntDir)src__PLAYER_ARCADE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\POLYGON.CPP">
+      <ObjectFileName>$(IntDir)src__POLYGON.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\PRIMITIVE.CPP">
+      <ObjectFileName>$(IntDir)src__PRIMITIVE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\PROFILE.CPP">
+      <ObjectFileName>$(IntDir)src__PROFILE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\RAIL.CPP">
+      <ObjectFileName>$(IntDir)src__RAIL.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\RAILWAY.CPP">
+      <ObjectFileName>$(IntDir)src__RAILWAY.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\RANDOM.CPP">
+      <ObjectFileName>$(IntDir)src__RANDOM.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\REGION.CPP">
+      <ObjectFileName>$(IntDir)src__REGION.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\REGISTRY.CPP">
+      <ObjectFileName>$(IntDir)src__REGISTRY.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\RESREAD.CPP">
+      <ObjectFileName>$(IntDir)src__RESREAD.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\ROBOT.CPP">
+      <ObjectFileName>$(IntDir)src__ROBOT.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\SCRIPT.CPP">
+      <ObjectFileName>$(IntDir)src__SCRIPT.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\SFX.CPP">
+      <ObjectFileName>$(IntDir)src__SFX.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\SOUND.CPP">
+      <ObjectFileName>$(IntDir)src__SOUND.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\SPRITE.CPP">
+      <ObjectFileName>$(IntDir)src__SPRITE.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\STREAM.CPP">
+      <ObjectFileName>$(IntDir)src__STREAM.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\TERRAIN.CPP">
+      <ObjectFileName>$(IntDir)src__TERRAIN.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\UNDO.CPP">
+      <ObjectFileName>$(IntDir)src__UNDO.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\UNIT.CPP">
+      <ObjectFileName>$(IntDir)src__UNIT.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\VID.CPP">
+      <ObjectFileName>$(IntDir)src__VID.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\action_list.cpp">
+      <ObjectFileName>$(IntDir)src__action_list.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\app_callbacks.cpp">
+      <ObjectFileName>$(IntDir)src__app_callbacks.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\dialogSrv.cpp">
+      <ObjectFileName>$(IntDir)src__dialogSrv.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\draw_map.cpp">
+      <ObjectFileName>$(IntDir)src__draw_map.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\editor_dialogs.cpp">
+      <ObjectFileName>$(IntDir)src__editor_dialogs.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\editor_map_dialog.cpp">
+      <ObjectFileName>$(IntDir)src__editor_map_dialog.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\editor_map_info.cpp">
+      <ObjectFileName>$(IntDir)src__editor_map_info.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\editor_sprite_commands.cpp">
+      <ObjectFileName>$(IntDir)src__editor_sprite_commands.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\editor_sprite_draw.cpp">
+      <ObjectFileName>$(IntDir)src__editor_sprite_draw.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\editor_text_dialog.cpp">
+      <ObjectFileName>$(IntDir)src__editor_text_dialog.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\editor_unit_dialog.cpp">
+      <ObjectFileName>$(IntDir)src__editor_unit_dialog.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\engine_globals.cpp">
+      <ObjectFileName>$(IntDir)src__engine_globals.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\graph.cpp">
+      <ObjectFileName>$(IntDir)src__graph.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <ObjectFileName>$(IntDir)src__main.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_control.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_control.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_draw.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_draw.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_factory.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_factory.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_fill.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_fill.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_lifetime.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_lifetime.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_load.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_load.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_mouse.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_mouse.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_navigation.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_navigation.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_rail.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_rail.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_state.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_state.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_tact.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_tact.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_terrain.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_terrain.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_transforms.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_transforms.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_edit_workwnd.cpp">
+      <ObjectFileName>$(IntDir)src__map_edit_workwnd.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_vid_controls.cpp">
+      <ObjectFileName>$(IntDir)src__map_vid_controls.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\map_vid_tree.cpp">
+      <ObjectFileName>$(IntDir)src__map_vid_tree.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\mousetips.cpp">
+      <ObjectFileName>$(IntDir)src__mousetips.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\resource_ini.cpp">
+      <ObjectFileName>$(IntDir)src__resource_ini.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\script_exec.cpp">
+      <ObjectFileName>$(IntDir)src__script_exec.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\sprite_collector.cpp">
+      <ObjectFileName>$(IntDir)src__sprite_collector.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\sprite_list.cpp">
+      <ObjectFileName>$(IntDir)src__sprite_list.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\sprite_polygon.cpp">
+      <ObjectFileName>$(IntDir)src__sprite_polygon.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\string_stream.cpp">
+      <ObjectFileName>$(IntDir)src__string_stream.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\texture.cpp">
+      <ObjectFileName>$(IntDir)src__texture.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\texture_atlas.cpp">
+      <ObjectFileName>$(IntDir)src__texture_atlas.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\legacy_codec.cpp">
+      <ObjectFileName>$(IntDir)src__legacy_codec.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\vid_graphics.cpp">
+      <ObjectFileName>$(IntDir)src__vid_graphics.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\vid_resources.cpp">
+      <ObjectFileName>$(IntDir)src__vid_resources.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\zInputMap.cpp">
+      <ObjectFileName>$(IntDir)src__zInputMap.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="third_party\libogg\src\bitwise.c">
+      <ObjectFileName>$(IntDir)third_party__libogg__src__bitwise.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libogg\src\framing.c">
+      <ObjectFileName>$(IntDir)third_party__libogg__src__framing.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\mdct.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__mdct.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\smallft.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__smallft.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\block.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__block.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\envelope.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__envelope.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\window.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__window.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\lsp.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__lsp.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\lpc.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__lpc.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\analysis.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__analysis.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\synthesis.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__synthesis.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\psy.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__psy.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\info.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__info.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\floor1.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__floor1.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\floor0.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__floor0.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\res0.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__res0.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\mapping0.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__mapping0.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\registry.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__registry.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\codebook.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__codebook.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\sharedbook.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__sharedbook.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\lookup.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__lookup.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\bitrate.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__bitrate.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="third_party\libvorbis\lib\vorbisfile.c">
+      <ObjectFileName>$(IntDir)third_party__libvorbis__lib__vorbisfile.obj</ObjectFileName>
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\balloon.h" />
+    <ClInclude Include="src\basetype.h" />
+    <ClInclude Include="src\builded_terrain.h" />
+    <ClInclude Include="src\building.h" />
+    <ClInclude Include="src\cannon.h" />
+    <ClInclude Include="src\constant.h" />
+    <ClInclude Include="src\crc32.h" />
+    <ClInclude Include="src\creature.h" />
+    <ClInclude Include="src\depo.h" />
+    <ClInclude Include="src\dialogSrv.h" />
+    <ClInclude Include="src\dialog_controls.h" />
+    <ClInclude Include="src\dialog_tree.h" />
+    <ClInclude Include="src\dialog_unit.h" />
+    <ClInclude Include="src\draw_map.h" />
+    <ClInclude Include="src\editor_dialogs.h" />
+    <ClInclude Include="src\engine.h" />
+    <ClInclude Include="src\engine_globals.h" />
+    <ClInclude Include="src\frame.h" />
+    <ClInclude Include="src\graph.h" />
+    <ClInclude Include="src\groups.h" />
+    <ClInclude Include="src\input.h" />
+    <ClInclude Include="src\list.h" />
+    <ClInclude Include="src\man.h" />
+    <ClInclude Include="src\map.h" />
+    <ClInclude Include="src\map_edit.h" />
+    <ClInclude Include="src\menu.h" />
+    <ClInclude Include="src\message.h" />
+    <ClInclude Include="src\mouse.h" />
+    <ClInclude Include="src\mousetips.h" />
+    <ClInclude Include="src\myerror.h" />
+    <ClInclude Include="src\mylib.h" />
+    <ClInclude Include="src\net.h" />
+    <ClInclude Include="src\plane.h" />
+    <ClInclude Include="src\player.h" />
+    <ClInclude Include="src\player_arcade.h" />
+    <ClInclude Include="src\polygon.h" />
+    <ClInclude Include="src\profile.h" />
+    <ClInclude Include="src\rail.h" />
+    <ClInclude Include="src\railway.h" />
+    <ClInclude Include="src\region.h" />
+    <ClInclude Include="src\registry.h" />
+    <ClInclude Include="src\resource_ini.h" />
+    <ClInclude Include="src\resread.h" />
+    <ClInclude Include="src\robot.h" />
+    <ClInclude Include="src\runtime\win32_callbacks.h" />
+    <ClInclude Include="src\script.h" />
+    <ClInclude Include="src\script_exec_dispatch.h" />
+    <ClInclude Include="src\sfx.h" />
+    <ClInclude Include="src\sound.h" />
+    <ClInclude Include="src\sprite.h" />
+    <ClInclude Include="src\sprite_collector.h" />
+    <ClInclude Include="src\sprite_list.h" />
+    <ClInclude Include="src\stream.h" />
+    <ClInclude Include="src\string_stream.h" />
+    <ClInclude Include="src\terrain.h" />
+    <ClInclude Include="src\texture.h" />
+    <ClInclude Include="src\texture_atlas.h" />
+    <ClInclude Include="src\legacy_codec.h" />
+    <ClInclude Include="src\undo.h" />
+    <ClInclude Include="src\unit.h" />
+    <ClInclude Include="src\vid.h" />
+    <ClInclude Include="src\weapon_runtime.h" />
+    <ClInclude Include="src\zm\Input\zInputMap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="THIRD_PARTY_NOTICES.txt" />
+    <None Include="resources\MapEdit_as2.res" />
+
+    <None Include="runtime\MapEdit.cfg" />
+    <None Include="runtime\Maps\new.map" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
